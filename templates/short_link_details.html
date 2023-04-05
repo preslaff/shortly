@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}Details about /{{ short_id }}{% endblock %}
+{% block body %}
+<script>
+function copyLink() {
+  var href = document.getElementById("link_short_id").href;
+  navigator.clipboard.writeText(href);
+<!--  alert("Copied the text: " + href);-->
+}
+</script>
+  <h2><a id="link_short_id" href="/{{ short_id }}">/{{ short_id }}</a>
+    <button type="button" class="copy-link-button" onclick="copyLink()">
+    <span class="material-icons">content_copy</span>
+    </button>
+<!--    <button onclick="myFunction()">Copy short link</button>-->
+  <dl>
+    <dt>Target host:
+    <dd><a href="/{{ short_id }}">{{ link_target|hostname }}</a>
+    <dt>Full link
+    <dd class=link><div>{{ link_target }}</div>
+    <dt>Click count:
+    <dd>{{ click_count }}
+  </dl>
+{% endblock %}
