@@ -1,6 +1,6 @@
 import os
 from urllib.parse import urlsplit
-
+import socket
 import redis
 from jinja2 import Environment
 from jinja2 import FileSystemLoader
@@ -13,6 +13,7 @@ from werkzeug.utils import redirect
 from werkzeug.wrappers import Request
 from werkzeug.wrappers import Response
 
+fqdn = socket.getfqdn()
 
 def base36_encode(number):
     assert number >= 0, "positive integer required"

@@ -1,18 +1,16 @@
 {% extends "layout.html" %}
 {% block title %}Details about /{{ short_id }}{% endblock %}
 {% block body %}
-<script>
-function copyLink() {
-  var href = document.getElementById("link_short_id").href;
-  navigator.clipboard.writeText(href);
-<!--  alert("Copied the text: " + href);-->
-}
-</script>
-  <h2><a id="link_short_id" href="/{{ short_id }}">/{{ short_id }}</a>
-    <button type="button" class="copy-link-button" onclick="copyLink()">
+
+<div  class="copy-control">
+  <a id="link_short_id" href="/{{ short_id }}" >shortly / {{ short_id }}</a>
+
+  <button type="button"  class="btn tooltipped tooltipped-s copy-link-button"
+      data-clipboard-action="copy"
+      data-clipboard-target="#link_short_id">
     <span class="material-icons">content_copy</span>
-    </button>
-<!--    <button onclick="myFunction()">Copy short link</button>-->
+  </button>
+</div>
   <dl>
     <dt>Target host:
     <dd><a href="/{{ short_id }}">{{ link_target|hostname }}</a>
@@ -21,4 +19,31 @@ function copyLink() {
     <dt>Click count:
     <dd>{{ click_count }}
   </dl>
+
+<script src="../static/clipboard.min.js"></script>
+<script src="../static/copy_paste.js"></script>
+
 {% endblock %}
+
+<!--      let hostname = location.hostname;-->
+<!--      let port = location.port;-->
+<!--      var clipboard = new ClipboardJS(".btn", {-->
+<!--        text: function(trigger) {-->
+<!--        const query = trigger.getAttribute('data-clipboard-target');-->
+<!--        const target = document.querySelector(query);-->
+<!--        return hostname+":"+port+target.getAttribute("href");-->
+<!--        }-->
+<!--      });-->
+
+<!--      clipboard.on('success', function (e) {-->
+<!--        console.info('Action:', e.action);-->
+<!--        console.info('Text:', e.text);-->
+<!--        console.info('Trigger:', e.trigger);-->
+<!--      });-->
+
+<!--      clipboard.on('error', function (e) {-->
+<!--        console.info('Action:', e.action);-->
+<!--        console.info('Text:', e.text);-->
+<!--        console.info('Trigger:', e.trigger);-->
+<!--      });-->
+

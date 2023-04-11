@@ -15,11 +15,14 @@ dt          { font-weight: normal; }
 .error      { background: #E8EFF0; padding: 3px 8px; color: #11557C;
               font-size: 0.9em; border-radius: 2px; }
 .urlinput   { width: 300px; }
-/*.copy-link-button {
-  flex-shrink: 0;
-  width: 20 px;
-  height: 20 px;
 
+a#link_short_id {font-size: 36px; text-decoration: none;}
+
+.copy-link-button {
+  margin-left: 15px;
+  flex-shrink: 0;
+  width: 30px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,4 +36,23 @@ dt          { font-weight: normal; }
 .copy-link-button:hover {
   background: #cccccc;
 }
-*/
+.copy-control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.notification-message {
+  margin: auto 1rem;
+  padding: .5rem 1rem;
+  background: grey;
+  color: white;
+  border-radius: .25rem;
+  position: absolute;
+  right: 25%;
+  display: none;
+}
+.notification-message.notify {
+  display: block;
+}
